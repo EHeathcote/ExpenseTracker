@@ -9,7 +9,7 @@ import "./ExpenseItem.css";
 // react will give us one parameter for each component which will be an object holding all recieved attributes as properties
 function ExpenseItem(props) {
   // imperative way of adding event listener: document.getElementById('root').addEventListener(event);
-  // react hook useState must be called directly in a react element function
+  // react hook useState must be called directly in a react element function, using const here becuause we are updating the title with setTitle, not directly with equal sign
   const [title, setTitle] = useState(props.title);
   const clickHandler = () => {
     // state updating function tells react that you want to assign a new value to the state which also tells react that the entire component instance should be reevaluated
