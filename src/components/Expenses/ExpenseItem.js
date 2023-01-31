@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+// stateless component aka presentational component or dumb component becuase it doesnt have any internal state, it just exists to output some data
+
+import React from "react";
 
 import Card from "../UI/Card";
 import ExpenseDate from "./ExpenseDate";
@@ -10,13 +12,13 @@ import "./ExpenseItem.css";
 function ExpenseItem(props) {
   // imperative way of adding event listener: document.getElementById('root').addEventListener(event);
   // react hook useState must be called directly in a react element function, using const here becuause we are updating the title with setTitle, not directly with equal sign
-  const [title, setTitle] = useState(props.title);
-  const clickHandler = () => {
-    // state updating function tells react that you want to assign a new value to the state which also tells react that the entire component instance should be reevaluated
-    setTitle("Updated");
-    // new value isnt immediately avlailbale becuase updating function schedules the update, it is not immediate
-    console.log(title);
-  };
+  // const [title, setTitle] = useState(props.title);
+  // const clickHandler = () => {
+  // state updating function tells react that you want to assign a new value to the state which also tells react that the entire component instance should be reevaluated
+  // setTitle("Updated");
+  // new value isnt immediately avlailbale becuase updating function schedules the update, it is not immediate
+  // console.log(title);
+  // };
   return (
     // custom components do not support className, they only support what you tell them to support
     // component is a function olny special thing is that it returns JSX, so since it is a function, it has to be called to return a value - react only calls the function once when the page is rendered, so if things change, we dont see it updated unless we tell react that a certain component needs to be reevaluated
@@ -24,11 +26,11 @@ function ExpenseItem(props) {
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
       </div>
       <div className="expense-item__price">
         ${props.amount}
-        <button onClick={clickHandler}>Change Title</button>
+        {/* <button onClick={clickHandler}>Change Title</button> */}
       </div>
     </Card>
   );
