@@ -6,30 +6,35 @@ import "./ExpenseList.css";
 
 function ExpenseList(props) {
   // relay year chosen in date filter to ExpenseList component and store in a state
-  const [dateFilter, setDateFilter] = useState("2020");
-
-  const recordDateFilterSelect = (selectedDate) => {
-    setDateFilter(selectedDate);
-    console.log(selectedDate);
+  const [filteredYear, setFilteredYear] = useState("2020");
+  // updating the state of the select filter to match the value of the chosen option from the dropdown
+  const recordDateFilterSelect = (selectedYear) => {
+    setFilteredYear(selectedYear);
   };
-  // console.log(props);
+  // create copy of expenses array filtered by selected year;
+  const filteredExpenses = props.expenseList.filter((expense) => {
+    return expense.date.getFullYear() === parseInt(filteredYear);
+  });
+
   return (
     <div>
       <Card className="expenses">
         {/* a controlled component - means a value used in the component is passed on to a parent component through props and is recieved from the parent component-the parent expenselist component controls the expensesfilter component*/}
         <ExpensesFilter
           onDateSelect={recordDateFilterSelect}
-          selected={dateFilter}
+          selected={filteredYear}
         />
         {/* use map  array method to transform array of objects into an array of jsx elements*/}
-        {props.expenseList.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {filteredExpenses.map((expense) => {
+          return (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          );
+        })}
       </Card>
     </div>
   );

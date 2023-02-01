@@ -3,7 +3,7 @@ import "./ExpensesFilter.css";
 
 const ExpensesFilter = (props) => {
   const ExpensesDateFilterHandler = (event) => {
-    // lifting state from date filter to expensesList
+    // lifting state from date filter child to expensesList parent
     props.onDateSelect(event.target.value);
   };
   return (
