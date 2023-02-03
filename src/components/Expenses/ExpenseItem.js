@@ -23,16 +23,18 @@ function ExpenseItem(props) {
     // custom components do not support className, they only support what you tell them to support
     // component is a function olny special thing is that it returns JSX, so since it is a function, it has to be called to return a value - react only calls the function once when the page is rendered, so if things change, we dont see it updated unless we tell react that a certain component needs to be reevaluated
     // must import useState function (react hook) from react library
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2>{props.title}</h2>
-      </div>
-      <div className="expense-item__price">
-        ${props.amount}
-        {/* <button onClick={clickHandler}>Change Title</button> */}
-      </div>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2>{props.title}</h2>
+        </div>
+        <div className="expense-item__price">
+          ${props.amount}
+          {/* <button onClick={clickHandler}>Change Title</button> */}
+        </div>
+      </Card>
+    </li>
   );
 }
 
