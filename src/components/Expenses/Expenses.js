@@ -25,6 +25,7 @@ function Expenses(props) {
           selected={filteredYear}
         />
         {/* use map  array method to transform array of objects into an array of jsx elements,  could  use ternary operator to display conditional message or abuse the js && operator which only allows right side to occur if left is true or move logic above, as shown*/}
+        {/* pass through the filtered expenses array as a prop */}
         <ExpenseList filteredExpenses={filteredExpenses} />
       </Card>
     </div>
