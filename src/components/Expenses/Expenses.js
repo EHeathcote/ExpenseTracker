@@ -3,6 +3,7 @@ import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpenseList from "./ExpenseList";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
   // relay year chosen in date filter to Expenses component and store in a state
@@ -24,6 +25,7 @@ function Expenses(props) {
           onDateSelect={recordDateFilterSelect}
           selected={filteredYear}
         />
+        <ExpensesChart expenses={filteredExpenses} />
         {/* use map  array method to transform array of objects into an array of jsx elements,  could  use ternary operator to display conditional message or abuse the js && operator which only allows right side to occur if left is true or move logic above, as shown*/}
         {/* pass through the filtered expenses array as a prop */}
         <ExpenseList filteredExpenses={filteredExpenses} />

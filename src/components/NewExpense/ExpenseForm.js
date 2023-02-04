@@ -40,7 +40,7 @@ const ExpenseForm = (props) => {
     event.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     // onSaveExpenseData defined in NewExpense component so can be passed in as a prop to Expense form and used --> passing entered information from child expense form to parent newexpense
