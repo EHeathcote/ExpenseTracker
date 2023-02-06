@@ -1,7 +1,7 @@
-# ExpenseTracker
+# ExpenseTracker #
 
-##Learning React.js basics by building an Expense Tracker app##
-###Skills/concepts learned:###
+## Learning React.js basics by building an Expense Tracker app ##
+### Skills/concepts learned: ###
 *Building custom React components
   *component is a function that returns JSX
   *React calls app.js function and then any custom components in the JSX will be called and so on when application is intially rendered
